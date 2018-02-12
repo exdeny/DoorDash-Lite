@@ -95,6 +95,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements Rest
     protected void onDestroy() {
         super.onDestroy();
         presenter.destroy();
+        DDLiteApplication.get().releaseRestaurantDetailsSubComponent();
     }
 
     @Override

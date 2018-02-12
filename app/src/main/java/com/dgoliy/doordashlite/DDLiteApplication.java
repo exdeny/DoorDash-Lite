@@ -67,4 +67,8 @@ public class DDLiteApplication extends Application {
         restaurantDetailsSubComponent = appComponent.plus(new RestaurantDetailsModule());
         return restaurantDetailsSubComponent;
     }
+
+    public void releaseRestaurantDetailsSubComponent() {
+        restaurantDetailsSubComponent = null;
+    }
 }
