@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="restaurant_list_item_cover_width">100dp</dimen>
+    <dimen name="restaurant_list_item_cover_height">75dp</dimen>
+
+    <dimen name="restaurant_details_cover_height">200dp</dimen>
+    <dimen name="restaurant_details_view_margin">8dp</dimen>
+    <dimen name="restaurant_list_item_padding">10dp</dimen>
+</resources>

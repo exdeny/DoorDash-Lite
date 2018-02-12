@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/restaurant_list_item_padding">
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="@dimen/restaurant_list_item_cover_width"
+        android:layout_height="@dimen/restaurant_list_item_cover_height"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/restaurant_details_view_margin"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintLeft_toRightOf="@+id/cover"
+        tools:text="Restaurant title" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/food_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/restaurant_details_view_margin"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@+id/cover"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
+        tools:text="Thai, Laotian" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/restaurant_details_view_margin"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/root"
+        app:layout_constraintRight_toRightOf="@id/root"
+        tools:text="Open" />
+
+</android.support.constraint.ConstraintLayout>

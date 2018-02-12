@@ -1,0 +1,78 @@
+ext {
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_8
+    targetCompatibilityVersion = JavaVersion.VERSION_1_8
+
+    versions = [
+            sdk : [
+                    min                   : 14,
+                    compile               : 27,
+                    target                : 27
+            ],
+
+            buildTools                    : "27.0.1",
+
+            support : [
+                    lib                   : "27.0.0",
+                    constraintLayout      : "1.0.2"
+            ],
+
+            dagger                        : "2.13",
+
+            rxJava : [
+                    core                  : "2.1.8",
+                    android               : "2.0.1"
+            ],
+
+            glide                         : "4.6.1",
+
+            retrofit                      : "2.3.0",
+            okHttp                        : "3.6.0",
+
+            test : [
+                    junit                 : "4.12",
+                    mockito               : "2.15.0",
+                    roboelectric          : "3.7",
+                    hamcrest              : "1.3"
+            ]
+    ]
+
+    dependency = [
+            support : [
+                    appcompatV4           : "com.android.support:support-v4:$versions.support.lib",
+                    appcompatV7           : "com.android.support:appcompat-v7:$versions.support.lib",
+                    design                : "com.android.support:design:$versions.support.lib",
+                    constraintLayout      : "com.android.support.constraint:constraint-layout:$versions.support.constraintLayout",
+            ],
+
+            dagger : [
+                    core                  : "com.google.dagger:dagger:$versions.dagger",
+                    compiler              : "com.google.dagger:dagger-compiler:$versions.dagger"
+            ],
+
+            rxJava : [
+                    core                  : "io.reactivex.rxjava2:rxjava:$versions.rxJava.core",
+                    android               : "io.reactivex.rxjava2:rxandroid:$versions.rxJava.android",
+            ],
+
+            remote : [
+                    retrofit : [
+                            core          : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                            gsonConvert   : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                            rxJavaAdapter : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+                    ],
+                    okHttpInterceptor     : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
+            ],
+
+            glide : [
+                    core                  : "com.github.bumptech.glide:glide:$versions.glide",
+                    processor             : "com.github.bumptech.glide:compiler:$versions.glide"
+            ],
+
+            test : [
+                    junit                 : "junit:junit:$versions.test.junit",
+                    hamcrest              : "org.hamcrest:hamcrest-library:$versions.test.hamcrest",
+                    mockito               : "org.mockito:mockito-core:$versions.test.mockito",
+                    roboelectric          : "org.robolectric:robolectric:$versions.test.roboelectric"
+            ]
+    ]
+}

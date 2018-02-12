@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    buildToolsVersion versions.buildTools
+    compileSdkVersion versions.sdk.compile
+
+    defaultConfig {
+        applicationId "com.dgoliy.doordashlite"
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility sourceCompatibilityVersion
+        targetCompatibility targetCompatibilityVersion
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+    implementation project(':libData')
+    implementation project(':libCommon')
+
+    implementation dependency.support.design
+    implementation dependency.support.constraintLayout
+
+    implementation dependency.glide.core
+    annotationProcessor dependency.glide.processor
+
+    annotationProcessor dependency.dagger.compiler
+
+    testImplementation dependency.test.roboelectric
+    testImplementation dependency.test.mockito
+    testImplementation dependency.test.junit
+    testImplementation dependency.test.hamcrest
+}

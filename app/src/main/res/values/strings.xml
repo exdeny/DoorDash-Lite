@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DoorDash Lite</string>
+
+    <string name="title_discover">Discover</string>
+    <string name="title_loading">Loading...</string>
+    <string name="title_no_data">No data</string>
+
+    <string name="details_delivery_fee">Offers delivery with the fee of $%.02f</string>
+</resources>
