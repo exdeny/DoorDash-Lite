@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyDouble;
@@ -46,13 +45,8 @@ public class DataManagerTest {
         when(api.getRestaurants(anyDouble(), anyDouble()))
                 .thenReturn(Single.just(mockedResult));
 
-        final List<Restaurant> returnedList = new ArrayList<>();
-        dataManager.observeRestaurants(new Location("dummy"))
-                .subscribeOn(Schedulers.trampoline())
-                .observeOn(Schedulers.trampoline())
-                .subscribe(
-                        list -> returnedList.addAll(list),
-                        error -> System.out.println("DataManager failed to return data"));
+        List<Restaurant> returnedList = dataManager
+                .observeRestaurants(new Location("dummy")).blockingGet();
 
         assertEquals(mockedRestaurantsCount, returnedList.size());
     }
@@ -71,13 +65,8 @@ public class DataManagerTest {
         when(api.getRestaurantDetails(111))
                 .thenReturn(Single.just(mockedRestaurant));
 
-        final Restaurant returnedRestaurant = new Restaurant();
-        dataManager.observeRestaurantDetails(111)
-                .subscribeOn(Schedulers.trampoline())
-                .observeOn(Schedulers.trampoline())
-                .subscribe(
-                        restaurant -> RestaurantHelper.copy(returnedRestaurant, restaurant),
-                        error -> System.out.println("DataManager failed to return data"));
+        Restaurant returnedRestaurant = dataManager
+                .observeRestaurantDetails(111).blockingGet();
 
         assertEquals(mockedRestaurant.getId(), returnedRestaurant.getId());
         assertEquals(mockedRestaurant.getName(), returnedRestaurant.getName());
